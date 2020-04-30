@@ -315,20 +315,21 @@
          })
          audio.play();
     }
- 
+  function voiceClose () {
+         audio.pause();
+  }
    function voicePaly () {
    	 var audio;
          audio = "408887.mp3";
          audio = new Audio(audio); 
          // 循环播放，播放结束继续播放
+         this.voiceClose();
          $(audio).unbind("ended").bind("ended", function(){
                audio.play();
          })
          audio.play();
      }
-     function voiceClose () {
-         audio.pause();
-  }
+
   /*let deg = 0;
   for (let i = 0; i < 6; i++) {
     $("<li><span class='left'>"+(6+i)+"</span><span class='right'>"+(i === 0? 12: i)+"</span></li>").css("transform", "rotate("+deg+"deg)").appendTo(".clockCon");
