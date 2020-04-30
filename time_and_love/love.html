@@ -118,7 +118,7 @@
       font-size: 35px;
       line-height: 50px;
       border-radius: 5px;
-      background-color: darkgoldenrod;
+      background-color:coral;
       margin: 0;
     }
     /* 文字显示 */
@@ -251,6 +251,14 @@
   </style>
 </head>
 <body>
+	<div style="position: fixed;top: 10px;left: 10px;">
+		<span style="color:#9b52ac;" >如果没有音乐，点击播放</span>
+		<button style="background:#9b52ac ; color:#ffff6a;border:none;" onclick="voicePaly()">播放</button>
+	</div>
+	<!--<audio style="opacity: 0;" id="myaudioa" src="408887.mp3" autoplay="autoplay" controls="controls" loop="loop" 
+	>
+	  不支持audio标签
+	</audio>-->
   <!-- <div class="clock">
     <ul class="clockCon">
       <div class="hour"></div>
@@ -295,8 +303,32 @@
   
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
 <script>
-  
+	window.onload=function(){
+		   var audio;
+         audio = "408887.mp3";
+         audio = new Audio(audio); 
+         // 循环播放，播放结束继续播放
+         $(audio).unbind("ended").bind("ended", function(){
+               audio.play();
+         })
+         audio.play();
+    }
+ 
+   function voicePaly () {
+   	 var audio;
+         audio = "408887.mp3";
+         audio = new Audio(audio); 
+         // 循环播放，播放结束继续播放
+         $(audio).unbind("ended").bind("ended", function(){
+               audio.play();
+         })
+         audio.play();
+     }
+     function voiceClose () {
+         audio.pause();
+  }
   /*let deg = 0;
   for (let i = 0; i < 6; i++) {
     $("<li><span class='left'>"+(6+i)+"</span><span class='right'>"+(i === 0? 12: i)+"</span></li>").css("transform", "rotate("+deg+"deg)").appendTo(".clockCon");
